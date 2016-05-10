@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Inang: 127.0.0.1
--- Waktu pembuatan: 09 Mei 2016 pada 22.27
+-- Waktu pembuatan: 10 Mei 2016 pada 09.42
 -- Versi Server: 5.5.32
 -- Versi PHP: 5.4.19
 
@@ -66,7 +66,9 @@ CREATE TABLE IF NOT EXISTS `faskes` (
 --
 
 INSERT INTO `faskes` (`nama`, `alamat`, `jenis_faskes`, `Provinsi`, `kabupaten`) VALUES
-('Rumah Sakit Borromeus', 'jalan bla bla', 'bla bla', 'Jawa Barat', 'Bandung');
+('', '', 'Puskesmas', 'Jawa Timur', 'Malang'),
+('Rumah Sakit Borromeus', 'jalan bla bla', 'bla bla', 'Jawa Barat', 'Bandung'),
+('Rumah Sakit Borromeus 2', 'Jalan Dipatiukur', 'Puskesmas', 'Jawa Tengah', 'Solo');
 
 -- --------------------------------------------------------
 
@@ -82,6 +84,27 @@ CREATE TABLE IF NOT EXISTS `iuran` (
   `file_iuran_rutin` int(11) NOT NULL,
   PRIMARY KEY (`nik`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `jenis_faskes`
+--
+
+CREATE TABLE IF NOT EXISTS `jenis_faskes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `jenis_faskes` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data untuk tabel `jenis_faskes`
+--
+
+INSERT INTO `jenis_faskes` (`id`, `jenis_faskes`) VALUES
+(1, 'Puskesmas'),
+(2, 'Klinik TNI'),
+(3, 'Klinik POLRI');
 
 -- --------------------------------------------------------
 
@@ -129,7 +152,7 @@ CREATE TABLE IF NOT EXISTS `kartu_keluarga` (
 --
 
 INSERT INTO `kartu_keluarga` (`no_kk`, `nik`, `nama`, `tgl_lahir`, `hubungan_keluarga`, `status`) VALUES
-('123', '1234', 'Ananda Kurniawan', '2015-04-01', 'Kepala Keluarga', 0),
+('123', '1234', 'Ananda Kurniawan', '2015-04-01', 'Kepala Keluarga', 2),
 ('123', '1235', 'Nindy Zulaiqah', '2016-04-01', 'Istri', 0),
 ('123', '1236', 'Muhammad zaminuddin', '2016-04-22', 'Anak', 0);
 
@@ -264,7 +287,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`nik`, `password`, `nama`, `tanggal_lahir`, `tempat_lahir`, `no_hp`, `npwp`, `rt_rw`, `kode_pos`, `kelurahan`, `iuran_perkeluarga`, `iuran_perjiwa`, `kelas_perawatan`, `no_rek`, `no_telp`, `log_daftar`, `bank`, `log_bayar`, `pemilik_rekening`, `faskes_tk1`, `faskes_tk1_gigi`, `status`, `alamat`) VALUES
-('1234', 'nanda', '', '0000-00-00', '', '', '', '', '', '', 0, 0, '', 'sddfdfdf', '', '2016-05-09 07:54:00', '', '0000-00-00 00:00:00', '', 0, 0, 2, ''),
+('1234', 'nanda', '', '0000-00-00', '', '', '', '', '', '', 0, 0, '', 'sddfdfdf', '', '2016-05-10 04:29:59', '', '0000-00-00 00:00:00', '', 0, 0, 2, ''),
 ('1235', 'nindy', 'Nindy Zulaiqah', '0000-00-00', '', '', '', '', '', '', 0, 0, '', '', '', '2016-04-27 19:10:33', '', '0000-00-00 00:00:00', '', 0, 0, 0, ''),
 ('1236', 'zamid', 'Muhammad Zaminuddin', '0000-00-00', '', '', '', '', '', '', 0, 0, '', '', '', '2016-04-27 19:11:51', '', '0000-00-00 00:00:00', '', 0, 0, 0, '');
 
