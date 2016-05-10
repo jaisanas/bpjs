@@ -2,7 +2,7 @@
 <html lang="en" class="">
 <head>
   <meta charset="utf-8" />
-  <title>Aplikasi Web Pengaduan Layanan BPJS</title>
+  <title>Bandung Web Kit | BDGWEBKIT</title>
   <meta name="description" content="Bandung Web Kit" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <link rel="stylesheet" href="../libs/assets/animate.css/animate.css" type="text/css" />
@@ -139,46 +139,60 @@
           <!-- / user -->
 
          <!-- nav -->
-          <nav ui-nav class="navi clearfix">
+         <nav ui-nav class="navi clearfix">
             <ul class="nav">
               <li class="hidden-folded m-t text-dark-grey text-xs padder-md padder-v-sm">
                 <span>Navigation</span>
               </li>
               <li class="">
-                <a href="index.html" class="text-dark-grey" >      
+                <a href="adminpendaftaran.php" class="text-dark-grey" >      
                   <i class="icon-bdg_dashboard icon-grey"></i>
-                  <span class="font-bold">Pendaftaran User</span>
+                  <span class="font-bold">Cek Pendaftaran</span>
                 </a>               
               </li>
 			  <li class="">
-                <a href="index.html" class="text-dark-grey" >      
+                <a href="adminpembayaran.php" class="text-dark-grey" >      
                   <i class="icon-bdg_dashboard icon-grey"></i>
-                  <span class="font-bold">Bayar Iuran</span>
-                </a>               
-              </li>
-			    <li class="">
-                <a href="index.html" class="text-dark-grey" >      
-                  <i class="icon-bdg_dashboard icon-grey"></i>
-                  <span class="font-bold">Klaim</span>
+                  <span class="font-bold">Cek Pembayaran</span>
                 </a>               
               </li>
 			    <li class="active">
-                <a href="index.html" class="text-dark-grey" >      
+                <a href="adminklaim.php" class="text-dark-grey" >      
                   <i class="icon-bdg_dashboard icon-grey"></i>
-                  <span class="font-bold">Cek Iuran</span>
+                  <span class="font-bold">Cek Klaim</span>
                 </a>               
               </li>
 			  <li class="">
-                <a href="index.html" class="text-dark-grey" >      
-                  <i class="icon-bdg_dashboard icon-grey"></i>
-                  <span class="font-bold">Faskes</span>
-                </a>               
-              </li>
-			  <li class="">
-                <a href="" class="text-dark-grey" >      
-                  <i class="icon-bdg_dashboard icon-grey"></i>
-                  <span class="font-bold">Statistik</span>
-                </a>               
+                <a href class="auto">
+                  <span class="pull-right text-muted">
+                    <i class="text8 icon-bdg_arrow3 text"></i>
+                    <i class="text8 icon-bdg_arrow1 text-active"></i>
+                  </span>
+                  <i class="icon-bdg_uikit"></i>
+                  <span class="font-bold">Kelola Faskes</span>
+                </a>
+                <ul class="nav nav-sub dk">
+                  <li class="nav-sub-header">
+                    <a href="admintambahfaskes.php">
+                      <span>Kelola Faskes</span>
+                    </a>
+                  </li>
+                  <li class="">
+                    <a href="admintambahfaskes.php">
+                      <span>Tambah Faskes</span>
+                    </a>
+                  </li>
+                  <li >
+                    <a href="admintambahprovinsi.php">
+                      <span>Tambah Provinsi</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="admintambahkabupaten.php">
+                      <span>Tambah Kabupaten</span>
+                    </a>
+                  </li>
+                </ul>
               </li>
             </ul>
           </nav>
@@ -229,7 +243,7 @@
 						}
 						$sql = "SELECT id,nik,isi_klaim,status,tanggal FROM klaim";
 						$result = mysqli_query($conn,$sql);
-						echo "<table class='table' ui-jq='footable' ui-options='{ 'paging': { 'enabled': true}}'>";
+						echo "<table class='table' ui-options='{ 'paging': { 'enabled': true}}'>";
 						echo "<thead>";
 						echo "<tr>";
 						echo "<th>NIK</th>";

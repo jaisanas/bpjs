@@ -125,45 +125,45 @@
                 <span>Navigation</span>
               </li>
               <li class="active">
-                <a href="index.html" class="text-dark-grey" >      
+                <a href="pendaftaran.php" class="text-dark-grey" >      
                   <i class="icon-bdg_dashboard icon-grey"></i>
                   <span class="font-bold">Pendaftaran User</span>
                 </a>               
               </li>
 			  <li class="">
-                <a href="login.php" class="text-dark-grey" >      
+                <a href="pembayaran.php" class="text-dark-grey" >      
                   <i class="icon-bdg_dashboard icon-grey"></i>
                   <span class="font-bold">Bayar Iuran</span>
                 </a>               
               </li>
 			    <li class="">
-                <a href="index.html" class="text-dark-grey" >      
+                <a href="klaim.php" class="text-dark-grey" >      
                   <i class="icon-bdg_dashboard icon-grey"></i>
                   <span class="font-bold">Klaim</span>
                 </a>               
               </li>
 			    <li class="">
-                <a href="index.html" class="text-dark-grey" >      
+                <a href="cekiuran.php" class="text-dark-grey" >      
                   <i class="icon-bdg_dashboard icon-grey"></i>
                   <span class="font-bold">Cek Iuran</span>
                 </a>               
               </li>
 			  <li class="">
-                <a href="index.html" class="text-dark-grey" >      
+                <a href="faskesselect.php" class="text-dark-grey" >      
                   <i class="icon-bdg_dashboard icon-grey"></i>
                   <span class="font-bold">Faskes</span>
                 </a>               
               </li>
-			  <li class="">
-                <a href="" class="text-dark-grey" >      
+			   <li class="">
+                <a href="cetakkartu.php" class="text-dark-grey" >      
                   <i class="icon-bdg_dashboard icon-grey"></i>
-                  <span class="font-bold">Statistik</span>
+                  <span class="font-bold">Cetak Kartu</span>
                 </a>               
               </li>
 			  <li class="">
-                <a href="" class="text-dark-grey" >      
+                <a href="statistic.php" class="text-dark-grey" >      
                   <i class="icon-bdg_dashboard icon-grey"></i>
-                  <span class="font-bold">Profile</span>
+                  <span class="font-bold">Statistik</span>
                 </a>               
               </li>
             </ul>

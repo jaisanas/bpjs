@@ -123,7 +123,7 @@
           <!-- / user -->
 
          <!-- nav -->
-          <nav ui-nav class="navi clearfix">
+           <nav ui-nav class="navi clearfix">
             <ul class="nav">
               <li class="hidden-folded m-t text-dark-grey text-xs padder-md padder-v-sm">
                 <span>Navigation</span>
@@ -147,27 +147,27 @@
                 </a>               
               </li>
 			    <li class="">
-                <a href="index.html" class="text-dark-grey" >      
+                <a href="cekiuran.php" class="text-dark-grey" >      
                   <i class="icon-bdg_dashboard icon-grey"></i>
                   <span class="font-bold">Cek Iuran</span>
                 </a>               
               </li>
 			  <li class="">
-                <a href="index.html" class="text-dark-grey" >      
+                <a href="faskesselect.php" class="text-dark-grey" >      
                   <i class="icon-bdg_dashboard icon-grey"></i>
                   <span class="font-bold">Faskes</span>
                 </a>               
               </li>
-			  <li class="">
-                <a href="" class="text-dark-grey" >      
+			   <li class="">
+                <a href="cetakkartu.php" class="text-dark-grey" >      
                   <i class="icon-bdg_dashboard icon-grey"></i>
-                  <span class="font-bold">Statistik</span>
+                  <span class="font-bold">Cetak Kartu</span>
                 </a>               
               </li>
 			  <li class="">
-                <a href="" class="text-dark-grey" >      
+                <a href="statistic.php" class="text-dark-grey" >      
                   <i class="icon-bdg_dashboard icon-grey"></i>
-                  <span class="font-bold">Profile</span>
+                  <span class="font-bold">Statistik</span>
                 </a>               
               </li>
             </ul>
