@@ -205,94 +205,8 @@
 			Pendafaran User
 		 </div>
 		  <div class="panel-body">
-				<form class="form-horizontal" method="post" action="admintambahfaskescontroller.php" enctype="multipart/form-data">
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Nama Faskes</label>
-						<div class="col-sm-10">
-							<input type="text" class="form-control" name="nama">
-								<span class="help-block m-b-none">Masukkan Nama Faskes</span>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Alamat</label>
-						<div class="col-sm-10">
-							<input type="text" class="form-control" name="alamat">
-								<span class="help-block m-b-none">Masukkan Alamat Faskes</span>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Provinsi</label>
-						<div class="col-sm-10">
-							<select name="provinsi" id="provinsi" class="form-control m-b">
-								<?php
-									$servername = "localhost";
-									$username = "root";
-									$password = "";
-									$dbname = "bpjs";
-									// Create connection
-									$conn = mysqli_connect($servername, $username, $password, $dbname);
-									// Check connection
-									if (!$conn) {
-										die("Connection failed: " . mysqli_connect_error());
-									}
-									$sql="SELECT provinsi FROM provinsi";
-									$result = mysqli_query($conn, $sql);
-									if (mysqli_num_rows($result) > 0) {
-											// output data of each row
-											while($row = mysqli_fetch_assoc($result)) {
-												echo '<option value="'.$row["provinsi"].'">'.$row["provinsi"].'</option>';
-											}
-									} else {
-										echo "0 results";
-									}
-									mysqli_close($conn);
-								?>
-							</select>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Kabupaten</label>
-						<div class="col-sm-10">
-							<select name="kabupaten" id="kabupaten" class="form-control m-b">
-							</select>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Jenis Faskes</label>
-						<div class="col-sm-10">
-							<select name="jenis_faskes" id="jenis_faskes" class="form-control m-b">
-								<?php
-									$servername = "localhost";
-									$username = "root";
-									$password = "";
-									$dbname = "bpjs";
-									// Create connection
-									$conn = mysqli_connect($servername, $username, $password, $dbname);
-									// Check connection
-									if (!$conn) {
-										die("Connection failed: " . mysqli_connect_error());
-									}
-									$sql="SELECT jenis_faskes FROM jenis_faskes";
-									$result = mysqli_query($conn, $sql);
-									if (mysqli_num_rows($result) > 0) {
-											// output data of each row
-											while($row = mysqli_fetch_assoc($result)) {
-												echo '<option value="'.$row["jenis_faskes"].'">'.$row["jenis_faskes"].'</option>';
-											}
-									} else {
-										echo "0 results";
-									}
-									mysqli_close($conn);
-								?>
-							</select>
-						</div>
-					</div>
-					<div class="form-group">
-						<div class="col-sm-4 col-sm-offset-2">
-							<button type="submit" class="btn btn-info">Simpan</button>
-						</div>
-					</div>
-				</form>
+				<div id="chartContainer" style="height: 300px; width: 100%;">
+				</div>
 		   </div>
 	  </div>
     </div>
@@ -321,30 +235,77 @@
 <script src="js/ui-nav.js"></script>
 <script src="js/ui-toggle.js"></script>
 <script src="js/ui-client.js"></script>
-<script>
-$(document).ready(function()
-{
-$("#provinsi").change(function()
-{
-var id=$(this).val();
-var dataString = 'provinsi='+ id;
+<script src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script >
+  window.onload = function () {
+        var chart = new CanvasJS.Chart("chartContainer", {
+            title: {
+                text: "Mobile Phones Used For",
+                fontFamily: "Verdana",
+                fontColor: "Peru",
+                fontSize: 28
 
-$.ajax
-({
-type: "POST",
-url: "selector.php",
-data: dataString,
-cache: false,
-success: function(html)
-{
-$("#kabupaten").html(html);
-} 
-});
+            },
+            animationEnabled: true,
+            axisY: {
+                tickThickness: 0,
+                lineThickness: 0,
+                valueFormatString: " ",
+                gridThickness: 0                    
+            },
+            axisX: {
+                tickThickness: 0,
+                lineThickness: 0,
+                labelFontSize: 18,
+                labelFontColor: "Peru"
 
-});
+            },
+            data: [
+            {
+                indexLabelFontSize: 26,
+                toolTipContent: "<span style='\"'color: {color};'\"'><strong>{indexLabel}</strong></span><span style='\"'font-size: 20px; color:peru '\"'><strong>{y}</strong></span>",
 
-});
-</script>
+                indexLabelPlacement: "inside",
+                indexLabelFontColor: "white",
+                indexLabelFontWeight: 600,
+                indexLabelFontFamily: "Verdana",
+                color: "#62C9C3",
+                type: "bar",
+                dataPoints: [
+					<?php
+					$servername = "localhost";
+									$username = "root";
+									$password = "";
+									$dbname = "bpjs";
+									// Create connection
+									$conn = mysqli_connect($servername, $username, $password, $dbname);
+									// Check connection
+									if (!$conn) {
+										die("Connection failed: " . mysqli_connect_error());
+									}
+									$sql="SELECT jenis_faskes,COUNT(*) AS 'num' FROM faskes GROUP BY jenis_faskes";
+									
+									$result = mysqli_query($conn, $sql);
+									
+									if (mysqli_num_rows($result) > 0) {
+											// output data of each row
+											while($row = mysqli_fetch_assoc($result)) {
+												echo '{ y: '.$row['num'].', label: "'.$row['num'].'", indexLabel: "'.$row['jenis_faskes'].'" }';
+												echo ',';
+											}
+									} else {
+										echo "0 results";
+									}
+									mysqli_close($conn);
+					?>
+                ]
+            }
+            ]
+        });
+
+        chart.render();
+    }
+ </script>
 </body>
 </html>
 

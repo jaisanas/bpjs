@@ -237,18 +237,6 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label">Jumlah Pembayaran</label>
-						<div class="col-sm-10">
-							<input type="number" class="form-control" name="jumlah_pembayaran" placeholder="Rp. Jumlah Pembayaran">
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Nomor Rekening</label>
-						<div class="col-sm-10">
-							<input type="text" class="form-control" name="no_rek" placeholder="Nomor Rekening">
-						</div>
-					</div>
-					<div class="form-group">
 						<label class="col-sm-2 control-label">Kabupaten</label>
 						<div class="col-sm-10">
 							<select name="kabupaten" id="kabupaten" class="form-control m-b">
@@ -256,23 +244,83 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label">Tahun Iuran</label>
+						<label class="col-sm-2 control-label">Jenis Faskes</label>
 						<div class="col-sm-10">
-							<input type="number" class="form-control" name="tahun_iuran" placeholder="Tahun Iuran">
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Bukti pembayaran</label>
-						<div class="col-sm-10">
-							<input type="file" class="form-control" name="bukti_pembayaran" placeholder="Bukti Pembayaran">
+							<select name="jenis_faskes" id="jenis_faskes" class="form-control m-b">
+								<?php
+									$servername = "localhost";
+									$username = "root";
+									$password = "";
+									$dbname = "bpjs";
+									// Create connection
+									$conn = mysqli_connect($servername, $username, $password, $dbname);
+									// Check connection
+									if (!$conn) {
+										die("Connection failed: " . mysqli_connect_error());
+									}
+									$sql="SELECT jenis_faskes FROM jenis_faskes";
+									$result = mysqli_query($conn, $sql);
+									if (mysqli_num_rows($result) > 0) {
+											// output data of each row
+											while($row = mysqli_fetch_assoc($result)) {
+												echo '<option value="'.$row["jenis_faskes"].'">'.$row["jenis_faskes"].'</option>';
+											}
+									} else {
+										echo "0 results";
+									}
+									mysqli_close($conn);
+								?>
+							</select>
 						</div>
 					</div>
 					<div class="form-group">
 						<div class="col-sm-4 col-sm-offset-2">
-							<button type="submit" class="btn btn-info">Kirim</button>
+							<button type="submit" class="btn btn-info">Cari</button>
 						</div>
 					</div>
 				</form>
+				
+				<br>
+				
+				<div class="panel panel-default">
+				 <div>
+                <table class="table" ui-jq="footable" ui-options='{
+                  "paging": {
+                    "enabled": true
+                  }}'>
+                  <thead>
+                    <tr>
+                      <th data-breakpoints="xs">Nama</th>
+                      <th>Alamat</th>
+                      <th>Jenis Faskes</th>
+                      <th data-breakpoints="xs">Provinsi</th>
+					  <th data-breakpoints="xs">Kabupaten</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+				   <?php
+				    if (isset($_GET['Message'])) {
+						$data = json_decode($_GET['Message']);
+						if($data != null) {
+						 foreach ($data as $item){
+							echo '<tr data-expanded="true">';
+							echo '<td>'.$item->nama.'</td>';
+							echo '<td>'.$item->alamat.'</td>';
+							echo '<td>'.$item->jenis_faskes.'</td>';
+							echo '<td>'.$item->provinsi.'</td>';
+							echo '<td>'.$item->kabupaten.'</td>';
+							echo '</tr>';
+						 }
+						}
+						else  {
+							echo "<p>Kosong </p>";
+						}
+					}
+				   ?>
+                  </tbody>
+                </table>
+              </div>
+			  </div>
 		   </div>
 	  </div>
     </div>

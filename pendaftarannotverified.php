@@ -2,7 +2,7 @@
 <html lang="en" class="">
 <head>
   <meta charset="utf-8" />
-  <title>Bandung Web Kit | BDGWEBKIT</title>
+  <title>Aplikasi Web Pengaduan Layanan BPJS</title>
   <meta name="description" content="Bandung Web Kit" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <link rel="stylesheet" href="../libs/assets/animate.css/animate.css" type="text/css" />
@@ -16,16 +16,11 @@
 
 </head>
 <body>
-<?php
-	if (isset($_GET['Message'])) {
-    echo '<script type="text/javascript">alert("' . $_GET['Message'] . '");</script>';
-}
-?>
 <div class="app app-header-fixed ">
   
 
     <!-- header -->
-  <header id="header" class="app-header navbar" role="menu">
+   <header id="header" class="app-header navbar" role="menu">
       <!-- navbar header -->
       <div class="navbar-header bg-info">
         <button class="pull-right visible-xs dk" ui-toggle-class="show" target=".navbar-collapse">
@@ -53,15 +48,35 @@
 
         <!-- link and dropdown -->
         <ul class="nav navbar-nav hidden-sm">
-          
+        
+        
         </ul>
         <!-- / link and dropdown -->
 
         <!-- nabar right -->
         <ul class="nav navbar-nav navbar-right">
+         
             <!-- / dropdown -->
+        
+          <li class="dropdown">
+            <a href="#" data-toggle="dropdown" class="bg-blue profile-header dropdown-toggle clear" data-toggle="dropdown">
+              <span class="thumb-sm avatar pull-left m-t-n-sm m-b-n-sm m-r-sm">
+                            
+              </span>
+              <span class="hidden-sm hidden-md m-r-xl"></span> <i class="text14 icon-bdg_setting3 pull-right"></i>
+            </a>
+            <!-- dropdown -->
+            <ul class="dropdown-menu animated fadeIn w-ml">             
+              <li class="divider"></li>
+              <li >
+                <a href="index.php">Logout</a>
+              </li>
+            </ul>
+            <!-- / dropdown -->
+          </li>
         </ul>
         <!-- / navbar right -->
+        
       </div>
       <!-- / navbar collapse -->
   </header>
@@ -129,46 +144,46 @@
               <li class="hidden-folded m-t text-dark-grey text-xs padder-md padder-v-sm">
                 <span>Navigation</span>
               </li>
-              <li class="">
-                <a href="pendaftaran.php" class="text-dark-grey" >      
+              <li class="active">
+                <a href="pendaftarannotverified.php" class="text-dark-grey" >      
                   <i class="icon-bdg_dashboard icon-grey"></i>
                   <span class="font-bold">Pendaftaran User</span>
                 </a>               
               </li>
-			  <li class="active">
-                <a href="pembayaran.php" class="text-dark-grey" >      
+			  <li class="">
+                <a href="notverified.php" class="text-dark-grey" >      
                   <i class="icon-bdg_dashboard icon-grey"></i>
                   <span class="font-bold">Bayar Iuran</span>
                 </a>               
               </li>
 			    <li class="">
-                <a href="klaim.php" class="text-dark-grey" >      
+                <a href="notverified.php" class="text-dark-grey" >      
                   <i class="icon-bdg_dashboard icon-grey"></i>
                   <span class="font-bold">Klaim</span>
                 </a>               
               </li>
 			    <li class="">
-                <a href="index.html" class="text-dark-grey" >      
+                <a href="notverified.php" class="text-dark-grey" >      
                   <i class="icon-bdg_dashboard icon-grey"></i>
                   <span class="font-bold">Cek Iuran</span>
                 </a>               
               </li>
 			  <li class="">
-                <a href="index.html" class="text-dark-grey" >      
+                <a href="notverified.php" class="text-dark-grey" >      
                   <i class="icon-bdg_dashboard icon-grey"></i>
                   <span class="font-bold">Faskes</span>
                 </a>               
               </li>
-			  <li class="">
-                <a href="" class="text-dark-grey" >      
+			   <li class="">
+                <a href="notverified.php" class="text-dark-grey" >      
                   <i class="icon-bdg_dashboard icon-grey"></i>
-                  <span class="font-bold">Statistik</span>
+                  <span class="font-bold">Cetak Kartu</span>
                 </a>               
               </li>
 			  <li class="">
-                <a href="" class="text-dark-grey" >      
+                <a href="notverified.php" class="text-dark-grey" >      
                   <i class="icon-bdg_dashboard icon-grey"></i>
-                  <span class="font-bold">Profile</span>
+                  <span class="font-bold">Statistik</span>
                 </a>               
               </li>
             </ul>
@@ -180,6 +195,11 @@
   <!-- / aside -->
 <!-- content -->
 <div id="content" class="app-content" role="main">
+	<?php
+	if (isset($_GET['Pesan'])) {
+    echo '<script type="text/javascript">alert("' . $_GET['Pesan'] . '");</script>';
+}
+?>
   <div class="hbox hbox-auto-xs hbox-auto-sm ng-scope">
     <div class="col">
       <div class="app-content-body app-content-full fade-in-up ng-scope h-full ">
@@ -199,100 +219,79 @@
 <div class="hbox hbox-auto-xs hbox-auto-sm bg-light ">
   <!-- column -->
   <div class="col w-full b-r">
+    
      <div class="row wrapper-lg">
 	  <div class="panel panel-default">
-		<div class="panel-heading font-bold">
+		 <div class="panel-heading font-bold">
 			Pendafaran User
 		 </div>
-		  <div class="panel-body">
-				<form class="form-horizontal" method="post" action="admintambahfaskescontroller.php" enctype="multipart/form-data">
+		   <div class="panel-body">
+				<form class="form-horizontal" method="post" action="pendaftarannotverifiedcontroller.php">
 					<div class="form-group">
-						<label class="col-sm-2 control-label">Nama Faskes</label>
+						<label class="col-sm-2 control-label">Nomor Kartu Keluarga</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" name="nama">
-								<span class="help-block m-b-none">Masukkan Nama Faskes</span>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Alamat</label>
-						<div class="col-sm-10">
-							<input type="text" class="form-control" name="alamat">
-								<span class="help-block m-b-none">Masukkan Alamat Faskes</span>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Provinsi</label>
-						<div class="col-sm-10">
-							<select name="provinsi" id="provinsi" class="form-control m-b">
-								<?php
-									$servername = "localhost";
-									$username = "root";
-									$password = "";
-									$dbname = "bpjs";
-									// Create connection
-									$conn = mysqli_connect($servername, $username, $password, $dbname);
-									// Check connection
-									if (!$conn) {
-										die("Connection failed: " . mysqli_connect_error());
-									}
-									$sql="SELECT provinsi FROM provinsi";
-									$result = mysqli_query($conn, $sql);
-									if (mysqli_num_rows($result) > 0) {
-											// output data of each row
-											while($row = mysqli_fetch_assoc($result)) {
-												echo '<option value="'.$row["provinsi"].'">'.$row["provinsi"].'</option>';
-											}
-									} else {
-										echo "0 results";
-									}
-									mysqli_close($conn);
-								?>
-							</select>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Kabupaten</label>
-						<div class="col-sm-10">
-							<select name="kabupaten" id="kabupaten" class="form-control m-b">
-							</select>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Jenis Faskes</label>
-						<div class="col-sm-10">
-							<select name="jenis_faskes" id="jenis_faskes" class="form-control m-b">
-								<?php
-									$servername = "localhost";
-									$username = "root";
-									$password = "";
-									$dbname = "bpjs";
-									// Create connection
-									$conn = mysqli_connect($servername, $username, $password, $dbname);
-									// Check connection
-									if (!$conn) {
-										die("Connection failed: " . mysqli_connect_error());
-									}
-									$sql="SELECT jenis_faskes FROM jenis_faskes";
-									$result = mysqli_query($conn, $sql);
-									if (mysqli_num_rows($result) > 0) {
-											// output data of each row
-											while($row = mysqli_fetch_assoc($result)) {
-												echo '<option value="'.$row["jenis_faskes"].'">'.$row["jenis_faskes"].'</option>';
-											}
-									} else {
-										echo "0 results";
-									}
-									mysqli_close($conn);
-								?>
-							</select>
+							<input type="text" class="form-control" name="no_kk">
+								<span class="help-block m-b-none">Masukkan Nomor Kartu Keluarga Anda</span>
 						</div>
 					</div>
 					<div class="form-group">
 						<div class="col-sm-4 col-sm-offset-2">
-							<button type="submit" class="btn btn-info">Simpan</button>
+							<button type="submit" class="btn btn-info">Proses Nomor Kartu Keluarga</button>
 						</div>
 					</div>
 				</form>
+				</br>
+				<div class="panel panel-default">
+				 <div>
+                <table class="table" ui-jq="footable" ui-options='{
+                  "paging": {
+                    "enabled": true
+                  }}'>
+                  <thead>
+                    <tr>
+                      <th data-breakpoints="xs">NIK</th>
+                      <th>Nama</th>
+                      <th>Tanggal Lahir</th>
+                      <th data-breakpoints="xs">Hubungan Keluarga</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+				   <?php
+				    if (isset($_GET['Message'])) {
+						$data = json_decode($_GET['Message']);
+						if($data != null) {
+						 foreach ($data as $item){
+							echo '<tr data-expanded="true">';
+							echo	'<td>'.$item->nik.'</td>';
+							echo '<td>'.$item->nama.'</td>';
+							echo '<td>'.$item->tgl_lahir.'</td>';
+							echo '<td>'.$item->hubungan_keluarga.'</td>';
+							echo '</tr>';
+						 }
+						}
+						else  {
+							echo "<p>Kosong </p>";
+						}
+					}
+				   ?>
+                  </tbody>
+                </table>
+              </div>
+			  </div>
+			  <?php
+			   if (isset($_GET['Message'])) {
+			    $data = json_decode($_GET['Message']);
+						if($data != null) {
+							echo '<form class="form-horizontal" method="post" action="pendaftaranselanjutnyanotverified.php">';
+							echo   '<div class="form-group">';
+							echo		'<div class="col-sm-4 col-sm-offset-2">';
+							echo			'<button type="submit" class="btn btn-info">Proses Selanjutnya</button>';
+							echo		'</div>';
+							echo	'</div>';
+							echo '</form>';
+						}
+				}
+			  ?>
 		   </div>
 	  </div>
     </div>
@@ -321,30 +320,7 @@
 <script src="js/ui-nav.js"></script>
 <script src="js/ui-toggle.js"></script>
 <script src="js/ui-client.js"></script>
-<script>
-$(document).ready(function()
-{
-$("#provinsi").change(function()
-{
-var id=$(this).val();
-var dataString = 'provinsi='+ id;
 
-$.ajax
-({
-type: "POST",
-url: "selector.php",
-data: dataString,
-cache: false,
-success: function(html)
-{
-$("#kabupaten").html(html);
-} 
-});
-
-});
-
-});
-</script>
 </body>
 </html>
 

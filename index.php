@@ -52,20 +52,7 @@
         </div>
         
       </div>
-      <button type="submit" class="btn btn-lg btn-info btn-block" >SIGN IN</button>
-
-      <div class="checkbox m-b-md text-left">
-        <label class="checkbox-inline m-t-sm">
-          <input type="checkbox" checked=""><i></i> Automatic Login
-        </label>
-      </div>
-
-      <div class="line line-dashed"></div>
-
-      <div class="text-left m-t">
-        <a href="" class=" b-r padder-md padder-left-none text-info">Register</a>
-        <a href="" class="padder-md">Forgot password?</a>
-      </div>      
+      <button type="submit" class="btn btn-lg btn-info btn-block" >SIGN IN</button>      
     </form>
 
   </div>

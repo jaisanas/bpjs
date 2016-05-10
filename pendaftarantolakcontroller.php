@@ -20,6 +20,12 @@
 						}else {
 							echo "gagal";
 						}
+						$sql = "UPDATE kartu_keluarga SET status='2' WHERE nik='$id'";
+						if (mysqli_query($conn, $sql)) {
+						
+						}else {
+							echo "Error updating record: " . mysqli_error($conn);
+						}
 						$sql = "UPDATE user SET status='2' WHERE nik='$id'";
 						if (mysqli_query($conn, $sql)) {
 							$Message="Pembayaran Berhasil Dikonfirmasi";							
