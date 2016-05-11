@@ -2,7 +2,7 @@
 <html lang="en" class="">
 <head>
   <meta charset="utf-8" />
-  <title>Bandung Web Kit | BDGWEBKIT</title>
+  <title>Aplikasi Web Layanan Pengaduan BPJS</title>
   <meta name="description" content="Bandung Web Kit" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <link rel="stylesheet" href="../libs/assets/animate.css/animate.css" type="text/css" />
@@ -138,8 +138,8 @@
           </div>
           <!-- / user -->
 
-         <!-- nav -->
-         <nav ui-nav class="navi clearfix">
+        <!-- nav -->
+          <nav ui-nav class="navi clearfix">
             <ul class="nav">
               <li class="hidden-folded m-t text-dark-grey text-xs padder-md padder-v-sm">
                 <span>Navigation</span>
@@ -182,7 +182,12 @@
                       <span>Tambah Faskes</span>
                     </a>
                   </li>
-                  <li >
+				   <li class="">
+                    <a href="admintambahjenisfaskes.php">
+                      <span>Tambah Jenis Faskes</span>
+                    </a>
+                  </li>
+                  <li class="">
                     <a href="admintambahprovinsi.php">
                       <span>Tambah Provinsi</span>
                     </a>
@@ -226,7 +231,7 @@
      <div class="row wrapper-lg">
 	  <div class="panel panel-default">
 		 <div class="panel-heading font-bold">
-			Pendafaran User
+			Verifikasi Klaim
 		 </div>
 		   <div class="panel-body">
 				<div class="panel panel-default">

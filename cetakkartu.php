@@ -2,7 +2,7 @@
 <html lang="en" class="">
 <head>
   <meta charset="utf-8" />
-  <title>Bandung Web Kit | BDGWEBKIT</title>
+  <title>Aplikasi Web Layanan Pengaduan BPJS</title>
   <meta name="description" content="Bandung Web Kit" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <link rel="stylesheet" href="../libs/assets/animate.css/animate.css" type="text/css" />
@@ -218,7 +218,7 @@
      <div class="row wrapper-lg">
 	  <div class="panel panel-default">
 		 <div class="panel-heading font-bold">
-			Pendafaran User
+			Cek Iuran
 		 </div>
 		   <div class="panel-body">
 				<form class="form-horizontal" method="post" action="cetakkartucontroller.php">
@@ -238,7 +238,7 @@
 				</br>
 				<div class="panel panel-default">
 				<?php
-				echo "<table class='table' ui-jq='footable' ui-options='{ 'paging': { 'enabled': true}}'>";
+				echo "<table class='table'  ui-options='{ 'paging': { 'enabled': true}}'>";
                 echo  "<thead>";
                 echo    "<tr>";
                 echo      '<th data-breakpoints="xs">NIK</th>';

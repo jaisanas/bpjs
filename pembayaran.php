@@ -2,7 +2,7 @@
 <html lang="en" class="">
 <head>
   <meta charset="utf-8" />
-  <title>Bandung Web Kit | BDGWEBKIT</title>
+  <title>Aplikasi Web Layanan Pengaduan BPJS</title>
   <meta name="description" content="Bandung Web Kit" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <link rel="stylesheet" href="../libs/assets/animate.css/animate.css" type="text/css" />
@@ -24,8 +24,8 @@
 <div class="app app-header-fixed ">
   
 
-    <!-- header -->
-  <header id="header" class="app-header navbar" role="menu">
+     <!-- header -->
+   <header id="header" class="app-header navbar" role="menu">
       <!-- navbar header -->
       <div class="navbar-header bg-info">
         <button class="pull-right visible-xs dk" ui-toggle-class="show" target=".navbar-collapse">
@@ -53,15 +53,35 @@
 
         <!-- link and dropdown -->
         <ul class="nav navbar-nav hidden-sm">
-          
+        
+        
         </ul>
         <!-- / link and dropdown -->
 
         <!-- nabar right -->
         <ul class="nav navbar-nav navbar-right">
+         
             <!-- / dropdown -->
+        
+          <li class="dropdown">
+            <a href="#" data-toggle="dropdown" class="bg-blue profile-header dropdown-toggle clear" data-toggle="dropdown">
+              <span class="thumb-sm avatar pull-left m-t-n-sm m-b-n-sm m-r-sm">
+                            
+              </span>
+              <span class="hidden-sm hidden-md m-r-xl"></span> <i class="text14 icon-bdg_setting3 pull-right"></i>
+            </a>
+            <!-- dropdown -->
+            <ul class="dropdown-menu animated fadeIn w-ml">             
+              <li class="divider"></li>
+              <li >
+                <a href="index.php">Logout</a>
+              </li>
+            </ul>
+            <!-- / dropdown -->
+          </li>
         </ul>
         <!-- / navbar right -->
+        
       </div>
       <!-- / navbar collapse -->
   </header>
@@ -202,7 +222,7 @@
      <div class="row wrapper-lg">
 	  <div class="panel panel-default">
 		<div class="panel-heading font-bold">
-			Pendafaran User
+			Pembayaran Iuran
 		 </div>
 		  <div class="panel-body">
 				<form class="form-horizontal" method="post" action="pembayarancontroller.php" enctype="multipart/form-data">
@@ -213,7 +233,7 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label">Jumalah Pembayaran</label>
+						<label class="col-sm-2 control-label">Jumlah Pembayaran</label>
 						<div class="col-sm-10">
 							<input type="number" class="form-control" name="jumlah_pembayaran" placeholder="Rp. Jumlah Pembayaran">
 						</div>
